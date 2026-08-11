@@ -2,8 +2,12 @@ document
     .getElementById("learnMoreButton")
     .addEventListener("click", () => {
 
-        document.getElementById("main").style.display = "none";
+        document
+            .getElementById("main")
+            .classList.add("d-none");
 
-        document.getElementById("courseFrame").style.display = "block";
+        document
+            .getElementById("courseFrame")
+            .classList.remove("d-none");
 
     });
