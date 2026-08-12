@@ -26,3 +26,9 @@ document
 document
     .getElementById("profileEmail")
     .textContent = student.email;
+
+    const classLink =
+    document.getElementById("dinghy101Link");
+
+classLink.href =
+    `https://gerardogala.github.io/DinghySailing101/?studentId=${encodeURIComponent(student.email)}&studentName=${encodeURIComponent(student.name)}`;
