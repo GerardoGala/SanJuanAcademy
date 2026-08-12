@@ -9,3 +9,14 @@ const student = {
     studentSince: "2026"
 
 };
+document
+    .getElementById("studentName")
+    .textContent = student.name;
+
+document
+    .getElementById("profileName")
+    .textContent = student.name;
+
+document
+    .getElementById("profileEmail")
+    .textContent = student.email;
