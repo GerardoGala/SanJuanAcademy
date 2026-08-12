@@ -73,10 +73,10 @@ signInButton.addEventListener(
             );
 
 
-            signInMessage.textContent =
-                "Sign-in failed. Please check your email and password.";
+        signInMessage.textContent =
+            error.code + ": " + error.message;
 
-            signInMessage.classList.remove("d-none");
+        signInMessage.classList.remove("d-none");
 
         }
 
