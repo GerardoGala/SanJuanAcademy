@@ -16,6 +16,9 @@ const profileEmail =
 const dinghy101Link =
     document.getElementById("dinghy101Link");
 
+const dinghy201Link =
+    document.getElementById("dinghy201Link");
+
 const signOutButton =
     document.getElementById("signOutButton");
 
@@ -49,12 +52,12 @@ onAuthStateChanged(
             email;
 
 
-        // ---------------------------------------------
-        // Open Dinghy Sailing 101
-        // ---------------------------------------------
-
         dinghy101Link.href =
             "https://gerardogala.github.io/DinghySailing101/" +
+            "?studentEmail=" +
+            encodeURIComponent(email);
+        dinghy201Link.href =
+            "https://gerardogala.github.io/DinghySailing201/" +
             "?studentEmail=" +
             encodeURIComponent(email);
 
