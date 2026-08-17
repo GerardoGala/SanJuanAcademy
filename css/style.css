@@ -3,7 +3,9 @@ body {
     height: 100%;
     margin: 0;
     background-color: #f0f7fc;
+    font-family: 'Inter', sans-serif;
 }
+
 .navbar {
     background-color: #3b87fa !important;
 }
@@ -20,6 +22,18 @@ body {
 .carousel-caption h2 {
     font-size: 4rem;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 576px) {
+
+    .carousel-item img {
+        height: 60vh;
+    }
+
+    .carousel-caption h2 {
+        font-size: 3rem;
+    }
+
 }
 
 @media (max-width: 576px) {
