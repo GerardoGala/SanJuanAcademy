@@ -7,9 +7,6 @@ import {
 import { auth } from "./firebase.js";
 
 
-const studentEmail =
-    document.getElementById("studentEmail");
-
 const profileEmail =
     document.getElementById("profileEmail");
 
@@ -43,9 +40,6 @@ onAuthStateChanged(
         const email =
             user.email;
 
-
-        studentEmail.textContent =
-            email;
 
 
         profileEmail.textContent =
