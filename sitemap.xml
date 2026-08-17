@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://sitemaps.org">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <!-- 1. The Hub Homepage -->
   <url>
-    <loc>https://github.io</loc>
+    <loc>https://gerardogala.github.io/SanJuanAcademy/</loc>
     <priority>1.0</priority>
   </url>
 
   <!-- 2. Classes Page -->
   <url>
-    <loc>https://github.ioclasses.html</loc>
+    <loc>https://gerardogala.github.io/SanJuanAcademy/classes.html</loc>
     <priority>0.8</priority>
   </url>
 
   <!-- 3. Instructors Page -->
   <url>
-    <loc>https://github.ioinstructors.html</loc>
+    <loc>https://gerardogala.github.io/SanJuanAcademy/instructors.html</loc>
     <priority>0.8</priority>
   </url>
-
-  <!-- 4. About Page -->
-  <url>
-    <loc>https://github.ioabout.html</loc>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- 5. Contact Page -->
-  <url>
-    <loc>https://github.iocontact.html</loc>
-    <priority>0.8</priority>
-  </url>
-
 </urlset>
