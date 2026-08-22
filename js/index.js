@@ -10,7 +10,7 @@ const dinghy201Link = document.getElementById("dinghy201Link");
 console.log("[Test Mode] Bypassing Firebase authentication to review page layout.");
 
 // 1. Create a dummy tester email string
-const testerEmail = "tester-son@hotmail.com";
+const testerEmail = "student@sja.com";
 
 // 2. Inject the text directly into your profile card
 if (profileEmail) {
@@ -29,6 +29,6 @@ if (dinghy101Link) {
 }
 
 if (dinghy201Link) {
-    dinghy201Link.href = "https://github.io" + secureQueryParam;
+    dinghy201Link.href = "https://gerardogala.github.io/DinghySailing201/" + secureQueryParam;
     console.log("[Test Mode] Dinghy 201 Link successfully built:", dinghy201Link.href);
 }
