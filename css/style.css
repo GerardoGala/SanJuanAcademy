@@ -1,11 +1,45 @@
-html,
-body {
-    height: 100%;
-    margin: 0;
-    background-color: #c7e0ec;
-    font-family: 'Inter', sans-serif;
+/* 1. Define your 5 colors */
+:root {
+  --bg-color: rgb(247 245 240);       /* 1. Soft Sand (Main Light Background) */
+  --text-color: rgb(33 37 41);         /* 2. Charcoal Black (Main Text for clear reading) */
+  --primary-color: rgb(30 144 255);    /* 3. Deep Sea Blue (Buttons) */
+  --nav-bg: rgb(202 228 241);          /* 4. Light Clear Sky Blue (Navbar Background) */
+  --footer-bg: rgb(222 184 135);       /* 5. Sandy Beach Beige (Footer Background) */
 }
 
-.navbar {
-    background-color: #3a9dd3 !important;
+/* 2. Assign them to your HTML structures */
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+nav.navbar {
+  background-color: var(--nav-bg) !important;
+}
+
+nav.navbar .navbar-brand,
+nav.navbar .nav-link {
+  color: var(--text-color) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  color: var(--bg-color) !important; 
+}
+
+/* Apply your beach-beige color to the footer element */
+footer {
+  background-color: var(--footer-bg) !important;
+  color: var(--text-color) !important;
+}
+
+/* Ensure any links inside the footer are also easy to read */
+footer a {
+  color: var(--text-color) !important;
+  text-decoration: underline;
+}
+
+/* Fix: Change button text to pure white so it stands out against the blue background */
+.btn-primary {
+  color: rgb(255 255 255) !important; 
 }
