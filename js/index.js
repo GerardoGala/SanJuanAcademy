@@ -1,70 +1,34 @@
-import {
-    onAuthStateChanged,
-    signOut
-} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+// =====================================================
+// 🔓 TEMPORARY BYPASS AUTHENTICATION FOR TESTING
+// =====================================================
 
-import { auth } from "./firebase.js";
+// Gather elements safely from dashboard.html
+const profileEmail = document.getElementById("profileEmail");
+const dinghy101Link = document.getElementById("dinghy101Link");
+const dinghy201Link = document.getElementById("dinghy201Link");
 
-/* ==================================================
-   DOM ELEMENTS & SAFETY CHECK
-================================================== */
+console.log("[Test Mode] Bypassing Firebase authentication to review page layout.");
 
-const joinButton = document.getElementById("joinButton");
-const loginButton = document.getElementById("loginButton");
-const dashboardButton = document.getElementById("dashboardButton");
-const logoutButton = document.getElementById("logoutButton");
+// 1. Create a dummy tester email string
+const testerEmail = "tester-son@hotmail.com";
 
-// Helper function to safely change visibility without throwing null pointer errors
-function toggleElementVisibility(element, shouldShow) {
-    if (!element) return; // Silent guard if the element isn't on this specific page
-    if (shouldShow) {
-        element.classList.remove("d-none");
-    } else {
-        element.classList.add("d-none");
-    }
+// 2. Inject the text directly into your profile card
+if (profileEmail) {
+    profileEmail.textContent = testerEmail;
+    console.log("[Test Mode] Dummy email successfully injected into UI.");
 }
 
-/* ==================================================
-   STUDENT AUTHENTICATION STATE
-================================================== */
 
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        console.log("Student is signed in:", user.email);
+// 1. Set the email tracking query string securely
+const secureQueryParam = "?studentEmail=" + encodeURIComponent(testerEmail);
 
-        toggleElementVisibility(joinButton, false);
-        toggleElementVisibility(loginButton, false);
-        toggleElementVisibility(dashboardButton, true);
-        toggleElementVisibility(logoutButton, true);
-    } else {
-        console.log("No student is signed in.");
+// 2. Stitch the base URL and the tracking query parameter together explicitly
+if (dinghy101Link) {
+    dinghy101Link.href = "https://gerardogala.github.io/DinghySailing101/" + secureQueryParam;
+    console.log("[Test Mode] Dinghy 101 Link successfully built:", dinghy101Link.href);
+}
 
-        toggleElementVisibility(joinButton, true);
-        toggleElementVisibility(loginButton, true);
-        toggleElementVisibility(dashboardButton, false);
-        toggleElementVisibility(logoutButton, false);
-    }
-});
-
-/* ==================================================
-   LOG OUT
-================================================== */
-
-if (logoutButton) {
-    logoutButton.addEventListener("click", async () => {
-        try {
-            await signOut(auth);
-            
-            // Bullet-proof navigation for both local server and GitHub Pages subdirectories
-            const currentPath = window.location.pathname;
-            const projectRoot = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
-            window.location.href = `${window.location.origin}${projectRoot}index.html`;
-
-        } catch (error) {
-            console.error("Log-out error:", error);
-            alert("Failed to log out. Please check your internet connection.");
-        }
-    });
-} else {
-    console.log("Logout button not found on this page; skipping click listener initialization.");
+if (dinghy201Link) {
+    dinghy201Link.href = "https://github.io" + secureQueryParam;
+    console.log("[Test Mode] Dinghy 201 Link successfully built:", dinghy201Link.href);
 }
