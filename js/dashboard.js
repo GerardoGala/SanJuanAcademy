@@ -7,9 +7,6 @@ import {
 import { auth } from "./firebase.js";
 
 
-const studentEmail =
-    document.getElementById("studentEmail");
-
 const profileEmail =
     document.getElementById("profileEmail");
 
@@ -44,9 +41,6 @@ onAuthStateChanged(
             user.email;
 
 
-        studentEmail.textContent =
-            email;
-
 
         profileEmail.textContent =
             email;
@@ -54,7 +48,8 @@ onAuthStateChanged(
 
         dinghy101Link.href =
             "https://gerardogala.github.io/DinghySailing101/" +
-            "?studentEmail=alex@sja,com");
+            "?studentEmail=" +
+            encodeURIComponent(email);
         dinghy201Link.href =
             "https://gerardogala.github.io/DinghySailing201/" +
             "?studentEmail=" +

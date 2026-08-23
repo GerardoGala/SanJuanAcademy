@@ -1,34 +1,82 @@
-// =====================================================
-// 🔓 TEMPORARY BYPASS AUTHENTICATION FOR TESTING
-// =====================================================
+import {
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
 
-// Gather elements safely from dashboard.html
-const profileEmail = document.getElementById("profileEmail");
-const dinghy101Link = document.getElementById("dinghy101Link");
-const dinghy201Link = document.getElementById("dinghy201Link");
-
-console.log("[Test Mode] Bypassing Firebase authentication to review page layout.");
-
-// 1. Create a dummy tester email string
-const testerEmail = "student@sja.com";
-
-// 2. Inject the text directly into your profile card
-if (profileEmail) {
-    profileEmail.textContent = testerEmail;
-    console.log("[Test Mode] Dummy email successfully injected into UI.");
-}
+import { auth } from "./firebase.js";
 
 
-// 1. Set the email tracking query string securely
-const secureQueryParam = "?studentEmail=" + encodeURIComponent(testerEmail);
 
-// 2. Stitch the base URL and the tracking query parameter together explicitly
-if (dinghy101Link) {
-    dinghy101Link.href = "https://gerardogala.github.io/DinghySailing101/" + secureQueryParam;
-    console.log("[Test Mode] Dinghy 101 Link successfully built:", dinghy101Link.href);
-}
+/* ==================================================
+   STUDENT AUTHENTICATION STATE
+================================================== */
 
-if (dinghy201Link) {
-    dinghy201Link.href = "https://gerardogala.github.io/DinghySailing201/" + secureQueryParam;
-    console.log("[Test Mode] Dinghy 201 Link successfully built:", dinghy201Link.href);
-}
+const joinButton =
+    document.getElementById("joinButton");
+
+const loginButton =
+    document.getElementById("loginButton");
+
+const dashboardButton =
+    document.getElementById("dashboardButton");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+onAuthStateChanged(auth, (user) => {
+
+    if (user) {
+
+        console.log(
+            "Student is signed in:",
+            user.email
+        );
+
+        joinButton.classList.add("d-none");
+
+        loginButton.classList.add("d-none");
+
+        dashboardButton.classList.remove("d-none");
+
+        logoutButton.classList.remove("d-none");
+
+    } else {
+
+        console.log(
+            "No student is signed in."
+        );
+
+        joinButton.classList.remove("d-none");
+
+        loginButton.classList.remove("d-none");
+
+        dashboardButton.classList.add("d-none");
+
+        logoutButton.classList.add("d-none");
+
+    }
+
+});
+
+/* ==================================================
+   LOG OUT
+================================================== */
+
+logoutButton.addEventListener("click", async () => {
+
+    try {
+
+        await signOut(auth);
+
+        window.location.href = "index.html";
+
+    } catch (error) {
+
+        console.error(
+            "Log-out error:",
+            error
+        );
+
+    }
+
+});
