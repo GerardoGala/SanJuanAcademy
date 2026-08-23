@@ -11,18 +11,24 @@
   <!-- 2. External Fonts Second -->
   <link href="https://googleapis.com" rel="stylesheet">
 
+
   <!-- 3. Your Personal Custom CSS Last (Overrides everything above safely) -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
+    <main class="container">
+        <div class="iframe-container">
+        <!-- FIXED: Removed ?m=1 to allow the layout to span wide natively -->
+        <iframe 
+            src="https://sanjuanacademy.blogspot.com/" 
+            title="San Juan Academy Blog"
+            style="width: 100%; height: 100dvh; max-height: 600px; border: 0;"
+            allowfullscreen>
+        </iframe>
+        </div>
 
-    <!-- San Juan Academy Blog Container -->
-    <section class="academy-blog-section">
-        <h2>Latest News & Sailing Updates</h2>
-        <div id="sja-blog-posts">Loading latest updates from the academy...</div>
-    </section>
-  
+    </main>
     <div id="footer-placeholder">
     </div>
         <!-- Bootstrap JavaScript -->
@@ -30,8 +36,29 @@
 
         <script src="js/layout.js"></script>
         <script src="js/social.js"></script>
-        <script src="js/blog.js"></script>
 
+        <style>
+            /* Widescreen wrapper for the blog video canvas */
+            .iframe-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            box-sizing: border-box;
+            /* Use aspect-ratio to keep layout proportional across screens */
+            aspect-ratio: 16 / 9; 
+            }
+
+            /* Ensure the inner document scales to 100% of the grid */
+            .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+        </style>
 
     </body>
 </html>
