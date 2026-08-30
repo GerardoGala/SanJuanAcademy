@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gerardogala.github.io/SanJuanAcademy/sitemap.xml
