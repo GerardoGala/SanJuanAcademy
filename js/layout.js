@@ -19,6 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Load shared CSS
+  const sharedCSS = document.createElement("link");
+  sharedCSS.rel = "stylesheet";
+  sharedCSS.href = BASE + "shared.css";
+  document.head.appendChild(sharedCSS);
+
+  // Load shared HTML components
   loadComponent("header.html", "header-placeholder");
   loadComponent("footer.html", "footer-placeholder");
 });
